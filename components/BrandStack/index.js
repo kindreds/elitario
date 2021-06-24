@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 // terceros
@@ -11,6 +11,14 @@ const BrandItem = ({ src }) => (
 )
 
 const BrandStack = () => {
+  const [load, setLoad] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoad(true), 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <Box
       py={16}
@@ -29,7 +37,14 @@ const BrandStack = () => {
         {Array(6)
           .fill(null)
           .map((_, i) => (
-            <BrandItem key={i} src={`/images/brand${i + 1}.png`} />
+            <BrandItem
+              key={i}
+              src={
+                load
+                  ? `/images/brand${i + 1}.png`
+                  : 'https://via.placeholder.com/150'
+              }
+            />
           ))}
       </SimpleGrid>
     </Box>
