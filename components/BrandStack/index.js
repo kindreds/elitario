@@ -15,7 +15,6 @@ const BrandStack = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => setLoad(true), 2000)
-
     return () => clearTimeout(timer)
   }, [])
 

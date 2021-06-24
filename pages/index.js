@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -6,7 +6,6 @@ import Image from 'next/image'
 import { Icon } from '@chakra-ui/icon'
 import { IconButton } from '@chakra-ui/button'
 import { useDisclosure } from '@chakra-ui/hooks'
-import { useInView } from 'react-intersection-observer'
 import { Box, Text, HStack, Link, Flex } from '@chakra-ui/layout'
 
 // Componentes
