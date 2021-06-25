@@ -79,6 +79,7 @@ const Home = () => {
           layout="fill"
           objectFit="cover"
           src={HeroPattern}
+          quality={100}
           placeholder="blur"
         />
         <Box
