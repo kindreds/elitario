@@ -24,9 +24,8 @@ const Home = () => {
   const { isOpen, onClose, onOpen } = useDisclosure()
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoad(!0), 3000)
-
-    return clearTimeout(timer)
+    const timer = setTimeout(() => setLoad(true), 3000)
+    return () => clearTimeout(timer)
   }, [])
 
   return (
