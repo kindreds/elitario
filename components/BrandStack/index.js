@@ -4,9 +4,19 @@ import Image from 'next/image'
 // terceros
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 
+// Imagenes
+import brand1 from '@/public/images/brand1.png'
+import brand2 from '@/public/images/brand2.png'
+import brand3 from '@/public/images/brand3.png'
+import brand4 from '@/public/images/brand4.png'
+import brand5 from '@/public/images/brand5.png'
+import brand6 from '@/public/images/brand6.png'
+
+const brandsIMGs = [brand1, brand2, brand3, brand4, brand5, brand6]
+
 const BrandItem = ({ src }) => (
   <Box pos="relative" w="full" h={{ base: 20 }}>
-    <Image src={src} layout="fill" />
+    <Image src={src} layout="fill" placeholder="blur" />
   </Box>
 )
 
@@ -26,26 +36,19 @@ const BrandStack = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <SimpleGrid
-        spacing={10}
-        w="70%"
-        mx="auto"
-        justify="center"
-        templateColumns={{ base: 'repeat(2, minmax(0, 1fr))' }}
-      >
-        {Array(6)
-          .fill(null)
-          .map((_, i) => (
-            <BrandItem
-              key={i}
-              src={
-                load
-                  ? `/images/brand${i + 1}.png`
-                  : 'https://via.placeholder.com/150'
-              }
-            />
+      {load ? (
+        <SimpleGrid
+          w="70%"
+          mx="auto"
+          spacing={10}
+          justify="center"
+          templateColumns={{ base: 'repeat(2, minmax(0, 1fr))' }}
+        >
+          {brandsIMGs.map((img, i) => (
+            <BrandItem key={i} src={img} />
           ))}
-      </SimpleGrid>
+        </SimpleGrid>
+      ) : null}
     </Box>
   )
 }

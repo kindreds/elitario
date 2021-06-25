@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import d from 'next/dynamic'
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -9,23 +10,24 @@ import { useDisclosure } from '@chakra-ui/hooks'
 import { Box, Text, HStack, Link, Flex } from '@chakra-ui/layout'
 
 // Componentes
-import Blog from '@/components/Blog'
-import Footer from '@/components/Footer'
-import Sidebar from '@/components/Sidebar'
 import MobileNav from '@/components/MobileNav'
 import HeroSlider from '@/components/HeroSlider'
-import BrandStack from '@/components/BrandStack'
-import Publicidad from '@/components/Publicidad'
-import PorQueElegirnos from '@/components/PorQueElegirnos'
-import ProductosRecientes from '@/components/ProductosRecientes'
-import ProductosDestacados from '@/components/ProductosDestacados'
-import PublicacionesRecientes from '@/components/PublicacionesRecientes'
 
 // Iconos
 import { PhoneIcon, FBIconPrimary, INSIconPrimary } from '@/assets/icons'
 
+// Importaciones dinamicas
+const Landing = d(() => import('@/sections/Landing'))
+
 const Home = () => {
+  const [load, setLoad] = useState(false)
   const { isOpen, onClose, onOpen } = useDisclosure()
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoad(!0), 3000)
+
+    return clearTimeout(timer)
+  }, [])
 
   return (
     <div>
@@ -95,17 +97,8 @@ const Home = () => {
       </Flex>
       <MobileNav {...{ onOpen }} />
       <HeroSlider />
-      <BrandStack />
-      <ProductosRecientes />
-      <Publicidad />
-      <ProductosDestacados />
-      <Publicidad />
-      <Blog />
-      <PublicacionesRecientes />
-      <PorQueElegirnos />
-      <Footer />
 
-      <Sidebar {...{ isOpen, onClose }} />
+      {load ? <Landing {...{ isOpen, onClose }} /> : null}
     </div>
   )
 }
