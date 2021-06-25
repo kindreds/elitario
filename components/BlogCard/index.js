@@ -4,8 +4,8 @@ import Image from 'next/image'
 // Terceros
 import { Box, Text, Heading as ChakraHeading } from '@chakra-ui/layout'
 
-const BlogCard = () => (
-  <Box>
+const BlogCard = (props) => (
+  <Box {...props} maxW={{ base: '287px', xl: '380px' }}>
     <Image
       width={380}
       height={270}

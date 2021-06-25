@@ -5,7 +5,9 @@ import { Icon } from '@chakra-ui/icon'
 import {
   Box,
   Text,
+  Grid,
   Center,
+  GridItem,
   SimpleGrid,
   Heading as ChakraHeading
 } from '@chakra-ui/layout'
@@ -35,8 +37,16 @@ const items = [
   }
 ]
 
-const Card = ({ icon, heading, content }) => (
-  <Box borderWidth={1} borderColor="surfaceCards.800" py={{ base: 12 }} px={5}>
+const Card = ({ icon, heading, content, ...props }) => (
+  <Box
+    {...props}
+    px={5}
+    borderWidth={1}
+    py={{ base: 12 }}
+    h={{ md: '447px' }}
+    maxW={{ base: '287px', xl: '380px' }}
+    borderColor="surfaceCards.800"
+  >
     <Center>
       <Icon as={icon} w={36} h={36} />
     </Center>
@@ -62,14 +72,30 @@ const Card = ({ icon, heading, content }) => (
 
 const PorQueElegirnos = () => {
   return (
-    <Box py={{ base: 16 }} bg="#111111">
+    <Box mt={-1} py={{ base: 16 }} bg="#111111">
       <Heading>¿Por que elegirnos?</Heading>
-
-      <SimpleGrid mt={16} gap={10} maxW={{ base: '80%' }} mx="auto">
+      <Grid
+        mt={16}
+        mx="auto"
+        maxW={{ base: '80%', xl: '1200px' }}
+        gap={{ base: 10, md: 5 }}
+        templateColumns={{
+          base: 'minmax(0, 1fr)',
+          sm: 'repeat(2, minmax(0, 1fr))',
+          md: 'repeat(3, minmax(0, 287px))',
+          xl: 'repeat(3, minmax(0, 380px))'
+        }}
+      >
         {items.map((item, i) => (
-          <Card key={i} {...item} />
+          <GridItem
+            key={i}
+            mx="auto"
+            colSpan={{ sm: i === 2 ? 2 : 1, md: 1, xl: 1 }}
+          >
+            <Card {...item} mx={{ sm: i === 2 ? 'auto' : 0 }} />
+          </GridItem>
         ))}
-      </SimpleGrid>
+      </Grid>
     </Box>
   )
 }

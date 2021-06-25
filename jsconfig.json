@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@/utils/*": ["utils/*"],
       "@/assets/*": ["assets/*"],
       "@/public/*": ["public/*"],
       "@/sections/*": ["sections/*"],

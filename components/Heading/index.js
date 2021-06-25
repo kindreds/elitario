@@ -13,8 +13,8 @@ const Heading = ({ children, mb, ...props }) => {
       <HEAD
         color="white"
         textAlign="center"
-        fontSize={{ base: '2xl' }}
         fontWeight={{ base: '500' }}
+        fontSize={{ base: '2xl', sm: '4xl' }}
         {...props}
       >
         {children}

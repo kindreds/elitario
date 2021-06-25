@@ -1,4 +1,13 @@
 import { extendTheme } from '@chakra-ui/react'
+import { createBreakpoints } from '@chakra-ui/theme-tools'
+
+const breakpoints = createBreakpoints({
+  ms: '34em',
+  sm: '40em',
+  md: '52em',
+  lg: '64em',
+  xl: '80em'
+})
 
 const fonts = {
   heading: 'Playfair Display',
@@ -80,6 +89,6 @@ const colors = {
   }
 }
 
-const theme = extendTheme({ colors, fonts })
+const theme = extendTheme({ colors, fonts, breakpoints })
 
 export default theme

@@ -1,54 +1,95 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 // terceros
+import Slider from 'react-slidy'
+import { Image } from '@chakra-ui/image'
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 
-// Imagenes
-import brand1 from '@/public/images/brand1.png'
-import brand2 from '@/public/images/brand2.png'
-import brand3 from '@/public/images/brand3.png'
-import brand4 from '@/public/images/brand4.png'
-import brand5 from '@/public/images/brand5.png'
-import brand6 from '@/public/images/brand6.png'
+// Hooks
+import useNumSlides from '@/utils/hooks/useNumSlides'
 
-const brandsIMGs = [brand1, brand2, brand3, brand4, brand5, brand6]
-
-const BrandItem = ({ src }) => (
-  <Box pos="relative" w="full" h={{ base: 20 }}>
-    <Image src={src} layout="fill" placeholder="blur" />
-  </Box>
-)
+const breakpoints = {
+  base: 1,
+  ms: 2,
+  sm: 3,
+  md: 4,
+  lg: 5,
+  xl: 6
+}
 
 const BrandStack = () => {
-  const [load, setLoad] = useState(false)
+  const [timer, setTimer] = useState(false)
+  const numOfSlides = useNumSlides(breakpoints)
+  const [actualSlide, setActualSlide] = useState(0)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoad(true), 2000)
+    const timer = play()
+    setTimer(timer)
     return () => clearTimeout(timer)
   }, [])
 
+  const play = () => {
+    return setInterval(() => {
+      setActualSlide((state) => {
+        if (state + 1 === 6) return 0
+        return state + 1
+      })
+    }, 5000)
+  }
+
+  const reset = () => clearInterval(timer)
+
+  const updateSlide = ({ currentSlide }) => {
+    setActualSlide(currentSlide)
+  }
+
   return (
-    <Box
-      py={16}
-      bg="#000"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      {load ? (
-        <SimpleGrid
-          w="70%"
-          mx="auto"
-          spacing={10}
-          justify="center"
-          templateColumns={{ base: 'repeat(2, minmax(0, 1fr))' }}
-        >
-          {brandsIMGs.map((img, i) => (
-            <BrandItem key={i} src={img} />
-          ))}
-        </SimpleGrid>
-      ) : null}
+    <Box mt={-1} w="full" bg="#000">
+      <Box maxW="1200px" mx="auto" px={8} py={16}>
+        {numOfSlides !== 6 ? (
+          <Slider
+            itemsToPreload={1}
+            slide={actualSlide}
+            imageObjectFit="contain"
+            numOfSlides={numOfSlides}
+            doAfterSlide={updateSlide}
+          >
+            {Array(6)
+              .fill(null)
+              .map((_, i) => (
+                <Image
+                  key={i}
+                  objectFit="contain"
+                  src={`/images/brand${i + 1}.png`}
+                  onTouchStart={reset}
+                  onMouseEnter={reset}
+                  onTouchEnd={() => setTimer(play())}
+                  onMouseLeave={() => setTimer(play())}
+                />
+              ))}
+          </Slider>
+        ) : (
+          <SimpleGrid
+            gap={{ xl: 5 }}
+            templateColumns="repeat(6, minmax(0, 1fr))"
+          >
+            {Array(6)
+              .fill(null)
+              .map((_, i) => (
+                <Image
+                  key={i}
+                  objectFit="contain"
+                  src={`/images/brand${i + 1}.png`}
+                  onTouchStart={reset}
+                  onMouseEnter={reset}
+                  onTouchEnd={() => setTimer(play())}
+                  onMouseLeave={() => setTimer(play())}
+                />
+              ))}
+          </SimpleGrid>
+        )}
+      </Box>
     </Box>
   )
 }

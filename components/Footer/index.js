@@ -13,7 +13,7 @@ const Footer = () => {
   const { pathname } = useRouter()
 
   return (
-    <Box as="footer" bg="#111111" pt={10} pb={20}>
+    <Box mt={-1} as="footer" bg="#111111" pt={10} pb={20}>
       <Box
         mx="auto"
         pos="relative"
@@ -24,15 +24,20 @@ const Footer = () => {
         <Image src="/logo/index.svg" layout="fill" />
       </Box>
 
-      <Stack>
+      <Stack
+        mx="auto"
+        spacing={{ base: 2 }}
+        maxW={{ base: '90%', md: '900px' }}
+        direction={{ base: 'column', md: 'row' }}
+      >
         {navigation.map(({ id, name, path }, i) => (
           <Box as={NextLink} href={path} key={id}>
             <Link
               w="full"
-              mx="auto"
               fontSize="3xl"
               textAlign="center"
               textTransform="uppercase"
+              mx={{ base: 'auto', md: 0 }}
               color={pathname === path ? 'primary.500' : 'white'}
             >
               {name}
@@ -40,7 +45,12 @@ const Footer = () => {
           </Box>
         ))}
       </Stack>
-      <Text mt={5} textAlign="center" fontSize="lg" color="white">
+      <Text
+        mt={{ base: 5, xl: 10 }}
+        textAlign="center"
+        fontSize="lg"
+        color="white"
+      >
         <Text as="span" color="primary.500">
           Zemez{'  '}
         </Text>
