@@ -10,10 +10,17 @@ import { Box, Heading, Center, Stack } from '@chakra-ui/layout'
 import Separador from '@/assets/Separador'
 import Button from '@/components/Button/Button'
 
+import HERO_IMG from '@/public/images/HeroSlide.jpg'
+
 const HeroSliderItem = () => {
   return (
     <Box pos="relative" w="full" h={80}>
-      <Image src="/images/HeroSlide.jpg" layout="fill" objectFit="cover" />
+      <Image
+        layout="fill"
+        src={HERO_IMG}
+        objectFit="cover"
+        placeholder="blur"
+      />
       <Center pos="absolute" h="full" top={0} left={0} right={0} bottom={0}>
         <Stack
           spacing={4}
@@ -63,7 +70,7 @@ const HeroSliderItem = () => {
 
 const HeroSlider = () => {
   return (
-    <Slider keyboardNavigation infiniteLoop>
+    <Slider itemsToPreload={1} keyboardNavigation infiniteLoop>
       {Array(3)
         .fill(null)
         .map((_, i) => (
