@@ -23,7 +23,7 @@ const MobileNav = ({ onOpen }) => {
       mx="auto"
       maxW="90%"
       pos="sticky"
-      zIndex="modal"
+      zIndex="overlay"
       justify="space-between"
     >
       <IconButton onClick={onOpen} icon={<Icon as={BarsIcon} fill="#fff" />} />
