@@ -8,7 +8,6 @@ import {
   Grid,
   Center,
   GridItem,
-  SimpleGrid,
   Heading as ChakraHeading
 } from '@chakra-ui/layout'
 

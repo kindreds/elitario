@@ -30,8 +30,8 @@ const PublicacionesRecientes = () => {
           md: 'repeat(2, minmax(0, 380px))'
         }}
       >
-        <BlogCard />
-        <BlogCard />
+        <BlogCard mx="auto" />
+        <BlogCard mx="auto" />
       </SimpleGrid>
     </Box>
   )

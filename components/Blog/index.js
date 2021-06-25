@@ -31,13 +31,13 @@ const Blog = () => {
         }}
       >
         <GridItem>
-          <BlogCard />
+          <BlogCard mx="auto" />
         </GridItem>
         <GridItem>
-          <BlogCard />
+          <BlogCard mx="auto" />
         </GridItem>
         <GridItem colSpan={{ base: 1, sm: 2, md: 1 }}>
-          <BlogCard mx={{ base: 0, sm: 'auto' }} />
+          <BlogCard mx="auto" />
         </GridItem>
       </Grid>
     </Box>
