@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 
 // Terceros
 import { Box, SimpleGrid } from '@chakra-ui/layout'
