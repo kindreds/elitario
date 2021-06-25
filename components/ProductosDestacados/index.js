@@ -9,7 +9,12 @@ import CardProduct from '@/components/CardProduct'
 
 const ProductosDestacados = () => {
   return (
-    <Box py={{ base: 16 }} bgImage="url(/patterns/HeroPattern.svg)">
+    <Box
+      py={{ base: 16 }}
+      bgSize="contain"
+      bgPosition="center"
+      bgImage="url(/images/heroPattern2.webp)"
+    >
       <Heading>Productos Destacados</Heading>
 
       <SimpleGrid

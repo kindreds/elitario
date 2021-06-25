@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import d from 'next/dynamic'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -11,22 +11,18 @@ import { Box, Text, HStack, Link, Flex } from '@chakra-ui/layout'
 
 // Componentes
 import MobileNav from '@/components/MobileNav'
-import HeroSlider from '@/components/HeroSlider'
 
 // Iconos
 import { PhoneIcon, FBIconPrimary, INSIconPrimary } from '@/assets/icons'
 
+// Imagenes
+import HeroPattern from '@/public/images/heroPattern2.webp'
+
 // Importaciones dinamicas
-const Landing = d(() => import('@/sections/Landing'))
+const Landing = d(() => import('@/sections/Landing'), { ssr: false })
 
 const Home = () => {
-  const [load, setLoad] = useState(false)
   const { isOpen, onClose, onOpen } = useDisclosure()
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoad(true), 3000)
-    return () => clearTimeout(timer)
-  }, [])
 
   return (
     <div>
@@ -82,7 +78,8 @@ const Home = () => {
           priority
           layout="fill"
           objectFit="cover"
-          src="/patterns/HeroPattern.svg"
+          src={HeroPattern}
+          placeholder="blur"
         />
         <Box
           mx="auto"
@@ -95,9 +92,7 @@ const Home = () => {
         </Box>
       </Flex>
       <MobileNav {...{ onOpen }} />
-      <HeroSlider />
-
-      {load ? <Landing {...{ isOpen, onClose }} /> : null}
+      <Landing {...{ isOpen, onClose }} />
     </div>
   )
 }

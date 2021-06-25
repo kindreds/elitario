@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 
 // Terceros
 import Slider from 'react-slidy'
@@ -13,12 +12,12 @@ import CardProduct from '@/components/CardProduct'
 const ProductosRecientes = () => {
   return (
     <>
-      <Box py={{ base: 16 }} pos="relative" style={{ zIndex: -1 }}>
-        <Image
-          layout="fill"
-          objectFit="cover"
-          src="/patterns/HeroPattern.svg"
-        />
+      <Box
+        py={{ base: 16 }}
+        bgSize="contain"
+        bgPosition="center"
+        bgImage="url(/images/heroPattern2.webp)"
+      >
         <Box maxW={{ base: '90%' }} mx="auto">
           <Heading>Productos Recientes</Heading>
           <Box mt={4} w="90%" mx="auto">
