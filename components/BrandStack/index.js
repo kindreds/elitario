@@ -49,7 +49,6 @@ const BrandStack = () => {
       <Box maxW="1200px" mx="auto" px={8} py={16}>
         {numOfSlides !== 6 ? (
           <Slider
-            itemsToPreload={1}
             slide={actualSlide}
             imageObjectFit="contain"
             numOfSlides={numOfSlides}
@@ -61,9 +60,9 @@ const BrandStack = () => {
                 <Image
                   key={i}
                   objectFit="contain"
-                  src={`/images/brand${i + 1}.png`}
                   onTouchStart={reset}
                   onMouseEnter={reset}
+                  src={`/images/brand${i + 1}.png`}
                   onTouchEnd={() => setTimer(play())}
                   onMouseLeave={() => setTimer(play())}
                 />
