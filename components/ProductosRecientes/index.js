@@ -12,7 +12,7 @@ import CardProduct from '@/components/CardProduct'
 // Hooks
 import useNumSlides from '@/utils/hooks/useNumSlides'
 
-const ProductosRecientes = () => {
+const ProductosRecientes = ({ loadChunk }) => {
   const [timer, setTimer] = useState(false)
   const [isFocus, setIsFocus] = useState(1)
   const [actualSlide, setActualSlide] = useState(0)
@@ -51,7 +51,7 @@ const ProductosRecientes = () => {
         bgSize="contain"
         py={{ base: 16 }}
         bgPosition="center"
-        bgImage="url(/images/heroPattern2.webp)"
+        bgImage="url(/images/heroPattern.webp)"
       >
         <Box maxW={{ base: '90%' }} mx="auto">
           <Heading>Productos Recientes</Heading>

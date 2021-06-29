@@ -32,7 +32,7 @@ const Home = () => {
       {/* FIRTS LOAD */}
       <Header />
       <MobileNav {...{ onOpen }} />
-      <Landing />
+      <Landing {...{ loadChunk }} />
 
       {/* LOAD LATER */}
       {loadChunk ? <Sidebar {...{ isOpen, onClose }} /> : null}
