@@ -30,7 +30,14 @@ const CardProduct = ({ src }) => (
         fill="primary.500"
       />
     </Box>
-    <ChakraHeading color="white" fontSize="lg" fontWeight="500" mb={2}>
+    <ChakraHeading
+      color="white"
+      fontSize="lg"
+      fontWeight="500"
+      mb={2}
+      maxW="95%"
+      isTruncated
+    >
       Bruichladdich The Classic Laddie...
     </ChakraHeading>
     <Flex justify="space-between">
@@ -61,7 +68,7 @@ const CardProduct = ({ src }) => (
         {Array(5)
           .fill(null)
           .map((_, i) => (
-            <Icon key={i} as={StarIcon} fill="yellow.500" w={5} h={5} />
+            <Icon key={i} as={StarIcon} fill="yellow.500" w={'5vw'} h={'5vw'} />
           ))}
       </HStack>
     </Flex>

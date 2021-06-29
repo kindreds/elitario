@@ -7,7 +7,6 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Preloader from '@/components/Preloader'
 
 import theme from '../theme'
-import 'react-slidy/lib/styles.css'
 
 const App = ({ Component, pageProps }) => {
   return (

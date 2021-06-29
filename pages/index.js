@@ -4,26 +4,22 @@ import Head from 'next/head'
 
 // Librerias de Terceros
 import { useDisclosure } from '@chakra-ui/hooks'
-import { useInView } from 'react-intersection-observer'
 
 // Componentes
 import Header from '@/components/Header'
+import Landing from '@/sections/Landing'
 import MobileNav from '@/components/MobileNav'
-import BrandStack from '@/components/BrandStack'
-import HeroSlider from '@/components/HeroSlider'
 
 // Importaciones dinamicas
-const Landing = d(() => import('@/sections/Landing'))
 const Sidebar = d(() => import('@/components/Sidebar'))
 
 const Home = () => {
   const [loadChunk, setLoadChunk] = useState(false)
   const { isOpen, onClose, onOpen } = useDisclosure()
-  const { ref, inView } = useInView({ rootMargin: '80px' })
 
   useEffect(() => {
-    if (isOpen || inView) setLoadChunk(true)
-  }, [isOpen, inView])
+    if (isOpen) setLoadChunk(true)
+  }, [isOpen])
 
   return (
     <>
@@ -36,12 +32,9 @@ const Home = () => {
       {/* FIRTS LOAD */}
       <Header />
       <MobileNav {...{ onOpen }} />
-      <HeroSlider />
-      <BrandStack />
+      <Landing />
 
       {/* LOAD LATER */}
-      <div ref={ref}>{loadChunk ? <Landing /> : null}</div>
-
       {loadChunk ? <Sidebar {...{ isOpen, onClose }} /> : null}
     </>
   )
