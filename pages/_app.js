@@ -1,23 +1,19 @@
 import '@fontsource/titillium-web'
 import '@fontsource/playfair-display'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
+
+// Component
+import Preloader from '@/components/Preloader'
 
 import theme from '../theme'
 import 'react-slidy/lib/styles.css'
 
 const App = ({ Component, pageProps }) => {
-  const [load, setLoad] = useState(true)
-
-  useEffect(() => {
-    window.addEventListener('load', () => setLoad(false))
-
-    return () => window.addEventListener('load', () => setLoad(false))
-  }, [])
-
   return (
     <ChakraProvider resetCSS theme={theme}>
-      <Component {...pageProps} {...{ load }} />
+      <Preloader />
+      <Component {...pageProps} />
     </ChakraProvider>
   )
 }
