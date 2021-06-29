@@ -1,16 +1,12 @@
 const path = require('path')
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
+// const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 })
 
-module.exports = withBundleAnalyzer({
-  reactStrictMode: true,
-  images: {
-    domains: ['via.placeholder.com']
-  },
+const configs = {
   webpack: (config) => {
-    config.plugins.push(new DuplicatePackageCheckerPlugin())
+    // config.plugins.push(new DuplicatePackageCheckerPlugin())
     config.resolve.alias['@emotion/is-prop-valid'] = path.resolve(
       __dirname,
       'node_modules',
@@ -43,4 +39,6 @@ module.exports = withBundleAnalyzer({
     )
     return config
   }
-})
+}
+
+module.exports = withBundleAnalyzer(configs)

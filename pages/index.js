@@ -7,11 +7,11 @@ import { useDisclosure } from '@chakra-ui/hooks'
 
 // Componentes
 import Header from '@/components/Header'
-import Landing from '@/sections/Landing'
 import MobileNav from '@/components/MobileNav'
 
 // Importaciones dinamicas
 const Sidebar = d(() => import('@/components/Sidebar'))
+const Landing = d(() => import('@/sections/Landing'), { ssr: false })
 
 const Home = () => {
   const [loadChunk, setLoadChunk] = useState(false)
@@ -32,7 +32,7 @@ const Home = () => {
       {/* FIRTS LOAD */}
       <Header />
       <MobileNav {...{ onOpen }} />
-      <Landing {...{ loadChunk }} />
+      <Landing />
 
       {/* LOAD LATER */}
       {loadChunk ? <Sidebar {...{ isOpen, onClose }} /> : null}

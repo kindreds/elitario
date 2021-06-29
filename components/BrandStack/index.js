@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 // terceros
 import Slider from 'react-slidy'
-import { Image } from '@chakra-ui/image'
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 
 // Hooks
@@ -56,15 +56,22 @@ const BrandStack = () => {
             {Array(6)
               .fill(null)
               .map((_, i) => (
-                <Image
+                <Box
                   key={i}
-                  objectFit="contain"
+                  w="full"
+                  h={{ base: 200 }}
+                  pos="relative"
                   onTouchStart={reset}
                   onMouseEnter={reset}
-                  src={`/images/brand${i + 1}.png`}
                   onTouchEnd={() => setTimer(play())}
                   onMouseLeave={() => setTimer(play())}
-                />
+                >
+                  <Image
+                    layout="fill"
+                    objectFit="contain"
+                    src={`/images/brand${i + 1}.png`}
+                  />
+                </Box>
               ))}
           </Slider>
         ) : (
