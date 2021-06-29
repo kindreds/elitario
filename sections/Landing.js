@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import d from 'next/dynamic'
 
 // Terceros
 import { useInView } from 'react-intersection-observer'
@@ -15,11 +14,9 @@ import ProductosRecientes from '@/components/ProductosRecientes'
 import ProductosDestacados from '@/components/ProductosDestacados'
 import PublicacionesRecientes from '@/components/PublicacionesRecientes'
 
-import 'react-slidy/lib/styles.css'
-
 const Landing = () => {
-  const [loadChunk, setLoadChunk] = useState(false)
   const { ref, inView } = useInView()
+  const [loadChunk, setLoadChunk] = useState(false)
 
   useEffect(() => {
     if (inView) setLoadChunk(true)
