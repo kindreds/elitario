@@ -15,6 +15,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'react/prop-types': 'off',
-    'multiline-ternary': 'off'
+    'multiline-ternary': 'off',
+    'react/no-children-prop': 'off'
   }
 }

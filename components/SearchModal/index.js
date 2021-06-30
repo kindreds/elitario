@@ -10,7 +10,7 @@ import {
   ModalCloseButton
 } from '@chakra-ui/modal'
 import { Icon } from '@chakra-ui/icon'
-import { Heading, SimpleGrid, Box } from '@chakra-ui/layout'
+import { Heading, SimpleGrid } from '@chakra-ui/layout'
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
 
 // Components

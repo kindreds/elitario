@@ -2,7 +2,6 @@ import React from 'react'
 
 // Librerias de Terceros
 import { Icon } from '@chakra-ui/icon'
-import { Portal } from '@chakra-ui/portal'
 import { Box, Text, Flex, Stack } from '@chakra-ui/layout'
 import { IconButton as IconButton2 } from '@chakra-ui/button'
 import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/menu'

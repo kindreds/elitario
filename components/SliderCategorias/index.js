@@ -46,7 +46,7 @@ const CardCategory = () => (
 )
 
 const SliderCategorias = () => {
-  const { actualSlide, updateSlide, reset, play } = useSlider()
+  const { reset, play } = useSlider()
   const numOfSlides = useNumSlides({
     base: 1,
     ms: 1,

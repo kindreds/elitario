@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 // Librerias de Terceros
 import { Icon } from '@chakra-ui/icon'
-import { Flex, HStack, Box } from '@chakra-ui/layout'
+import { Flex, HStack } from '@chakra-ui/layout'
 
 // Componentes
 import DesktopNav from './DesktopNav'
