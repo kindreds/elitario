@@ -2,7 +2,8 @@ export const navigation = [
   {
     id: 'inicio',
     name: 'Inicio',
-    path: '/'
+    path: '/',
+    active: true
   },
   {
     id: 'tienda',

@@ -11,15 +11,17 @@ import MobileNav from '@/components/MobileNav'
 
 // Importaciones dinamicas
 const Sidebar = d(() => import('@/components/Sidebar'))
+const SearchModal = d(() => import('@/components/SearchModal'))
 const Landing = d(() => import('@/sections/Landing'), { ssr: false })
 
 const Home = () => {
+  const modal = useDisclosure()
+  const sidebar = useDisclosure()
   const [loadChunk, setLoadChunk] = useState(false)
-  const { isOpen, onClose, onOpen } = useDisclosure()
 
   useEffect(() => {
-    if (isOpen) setLoadChunk(true)
-  }, [isOpen])
+    if (modal.isOpen || sidebar.isOpen) setLoadChunk(true)
+  }, [modal.isOpen, sidebar.isOpen])
 
   return (
     <>
@@ -31,11 +33,12 @@ const Home = () => {
 
       {/* FIRTS LOAD */}
       <Header />
-      <MobileNav {...{ onOpen }} />
+      <MobileNav {...{ modal, sidebar }} />
       <Landing />
 
       {/* LOAD LATER */}
-      {loadChunk ? <Sidebar {...{ isOpen, onClose }} /> : null}
+      {loadChunk ? <Sidebar {...sidebar} /> : null}
+      {loadChunk ? <SearchModal {...modal} /> : null}
     </>
   )
 }

@@ -22,7 +22,7 @@ const ProductosDestacados = () => {
       <SimpleGrid
         mt={10}
         mx="auto"
-        maxW={{ base: '90%', xl: '1700px' }}
+        maxW={{ base: '90%', xl: '1300px' }}
         gap={{ base: 10, sm: 8, md: 2, xl: 0 }}
         templateColumns={{
           base: 'minmax(0, 1fr)',

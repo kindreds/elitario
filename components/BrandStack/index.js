@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 // terceros
 import Slider from 'react-slidy'
+import { Image as IMGC } from '@chakra-ui/image'
 import { Box, SimpleGrid } from '@chakra-ui/layout'
 
 // Hooks
@@ -82,7 +83,7 @@ const BrandStack = () => {
             {Array(6)
               .fill(null)
               .map((_, i) => (
-                <Image
+                <IMGC
                   key={i}
                   objectFit="contain"
                   src={`/images/brand${i + 1}.png`}

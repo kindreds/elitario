@@ -1,67 +1,63 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Librerias de Terceros
 import { Icon } from '@chakra-ui/icon'
-import { Flex } from '@chakra-ui/layout'
-import { Portal } from '@chakra-ui/portal'
-import { IconButton as IconButton2 } from '@chakra-ui/button'
-import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/menu'
+import { Flex, HStack, Box } from '@chakra-ui/layout'
 
 // Componentes
+import DesktopNav from './DesktopNav'
+import { UserMenu, ShoppingMenu } from './Menus'
 import IconButton from '@/components/Button/IconButton'
 
 // Iconos
-import { BarsIcon, UserIcon } from '@/assets/icons'
+import { BarsIcon, SearchIcon } from '@/assets/icons'
 
-const MobileNav = ({ onOpen }) => {
+const MobileNav = ({ modal, sidebar }) => {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    const onChange = () => setScrollY(window.scrollY)
+    window.addEventListener('scroll', onChange)
+    return () => window.removeEventListener('scroll', onChange)
+  }, [])
+
+  const hasScroll = scrollY > 300
+
   return (
     <Flex
       mb={8}
-      top={5}
-      mt={-20}
-      w="full"
+      top={0}
       mx="auto"
-      maxW="90%"
+      mt="-120px"
       pos="sticky"
+      py={{ base: 5 }}
       zIndex="overlay"
-      justify="space-between"
+      justify="center"
+      transition="all 0.3s ease"
+      w={{ base: 'full', lg: '100vw' }}
+      bg={hasScroll ? 'surfaceCards.900' : 'transparent'}
     >
-      <IconButton onClick={onOpen} icon={<Icon as={BarsIcon} fill="#fff" />} />
-      <Menu>
-        <MenuButton
-          size="lg"
-          rounded="sm"
-          as={IconButton2}
-          bg="surfaceCards.800"
-          colorScheme="surfaceCards"
-          icon={<Icon as={UserIcon} fill="#fff" />}
+      <Flex
+        w="full"
+        justify="space-between"
+        maxW={{ base: '90%', xl: '1200px' }}
+      >
+        <IconButton
+          onClick={sidebar.onOpen}
+          display={{ base: 'flex', lg: 'none' }}
+          icon={<Icon as={BarsIcon} fill="#fff" />}
         />
-        <Portal>
-          <MenuList borderColor="transparent" bg="surfaceCards.800">
-            <MenuItem
-              _focus={{ bg: 'primary.500' }}
-              _active={{ bg: 'primary.600' }}
-              color="white"
-            >
-              Mi Cuenta
-            </MenuItem>
-            <MenuItem
-              _focus={{ bg: 'primary.500' }}
-              _active={{ bg: 'primary.600' }}
-              color="white"
-            >
-              Mis Ordenes
-            </MenuItem>
-            <MenuItem
-              _focus={{ bg: 'primary.500' }}
-              _active={{ bg: 'primary.800' }}
-              color="white"
-            >
-              Cerrar Sesión
-            </MenuItem>
-          </MenuList>
-        </Portal>
-      </Menu>
+        <DesktopNav {...{ hasScroll }} />
+        <HStack spacing={{ base: 5 }}>
+          <IconButton
+            onClick={modal.onOpen}
+            icon={<Icon as={SearchIcon} fill="#fff" />}
+          />
+
+          <ShoppingMenu />
+          <UserMenu />
+        </HStack>
+      </Flex>
     </Flex>
   )
 }

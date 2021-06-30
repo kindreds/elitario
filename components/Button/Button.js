@@ -5,7 +5,8 @@ import { Button as BTN } from '@chakra-ui/button'
 
 const Button = ({ isFocus, variant = 'solid', children, ...props }) => {
   const basic = {
-    rounded: 'sm'
+    rounded: 'sm',
+    fontWeight: 500
   }
 
   const activeLink = {

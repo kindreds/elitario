@@ -12,7 +12,7 @@ import Button from '@/components/Button/Button'
 import { StarIcon, ShoppingIcon, ZoomIcon } from '@/assets/icons'
 
 const CardProduct = ({ src }) => (
-  <Box m={5} maxW="340px" mx={{ xl: 'auto' }}>
+  <Box m={5} maxW="340px" mx={{ xl: '5' }}>
     <Box bg="surfaceCards.800" pt={10} pb={4} px={5} mb={5} pos="relative">
       <Image src={src} layout="intrinsic" width={300} height={300} />
       <Box pos="absolute" top={2} left={2} bg="surfaceCards.700" py={1} px={2}>
@@ -68,7 +68,13 @@ const CardProduct = ({ src }) => (
         {Array(5)
           .fill(null)
           .map((_, i) => (
-            <Icon key={i} as={StarIcon} fill="yellow.500" w={'5vw'} h={'5vw'} />
+            <Icon
+              key={i}
+              as={StarIcon}
+              fill="yellow.500"
+              w={{ base: '5vw', ms: 3, lg: 5 }}
+              h={{ base: '5vw', ms: 3, lg: 5 }}
+            />
           ))}
       </HStack>
     </Flex>
