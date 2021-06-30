@@ -34,7 +34,7 @@ const MobileNav = ({ modal, sidebar }) => {
       zIndex="overlay"
       justify="center"
       transition="all 0.3s ease"
-      w={{ base: 'full', lg: '100vw' }}
+      w={{ base: 'full', lg: 'full' }}
       bg={hasScroll ? 'surfaceCards.900' : 'transparent'}
     >
       <Flex

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Librerias de Terceros
 import { Icon } from '@chakra-ui/icon'
@@ -8,12 +8,12 @@ import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/menu'
 
 import {
   Popover,
+  PopoverBody,
+  PopoverArrow,
+  PopoverHeader,
+  PopoverFooter,
   PopoverTrigger,
   PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
   PopoverCloseButton
 } from '@chakra-ui/popover'
 
@@ -26,8 +26,10 @@ import ProductList from '@/components/CardProduct/ProductList'
 import { UserIcon, ShoppingIcon } from '@/assets/icons'
 
 export const UserMenu = () => {
+  const [load, setLoad] = useState(false)
+
   return (
-    <Menu>
+    <Menu onOpen={() => setLoad(true)}>
       <MenuButton
         size="lg"
         rounded="sm"
@@ -36,36 +38,40 @@ export const UserMenu = () => {
         colorScheme="surfaceCards"
         icon={<Icon as={UserIcon} fill="#fff" />}
       />
-      <MenuList borderColor="transparent" bg="surfaceCards.800">
-        <MenuItem
-          _focus={{ bg: 'primary.500' }}
-          _active={{ bg: 'primary.600' }}
-          color="white"
-        >
-          Mi Cuenta
-        </MenuItem>
-        <MenuItem
-          _focus={{ bg: 'primary.500' }}
-          _active={{ bg: 'primary.600' }}
-          color="white"
-        >
-          Mis Ordenes
-        </MenuItem>
-        <MenuItem
-          _focus={{ bg: 'primary.500' }}
-          _active={{ bg: 'primary.800' }}
-          color="white"
-        >
-          Cerrar Sesión
-        </MenuItem>
-      </MenuList>
+      {load ? (
+        <MenuList borderColor="transparent" bg="surfaceCards.800">
+          <MenuItem
+            _focus={{ bg: 'primary.500' }}
+            _active={{ bg: 'primary.600' }}
+            color="white"
+          >
+            Mi Cuenta
+          </MenuItem>
+          <MenuItem
+            _focus={{ bg: 'primary.500' }}
+            _active={{ bg: 'primary.600' }}
+            color="white"
+          >
+            Mis Ordenes
+          </MenuItem>
+          <MenuItem
+            _focus={{ bg: 'primary.500' }}
+            _active={{ bg: 'primary.800' }}
+            color="white"
+          >
+            Cerrar Sesión
+          </MenuItem>
+        </MenuList>
+      ) : null}
     </Menu>
   )
 }
 
 export const ShoppingMenu = () => {
+  const [load, setLoad] = useState(false)
+
   return (
-    <Popover placement="bottom-start" closeOnBlur>
+    <Popover onOpen={() => setLoad(true)} placement="bottom-start" closeOnBlur>
       <PopoverTrigger>
         <Box pos="relative">
           <IconButton2
@@ -78,53 +84,55 @@ export const ShoppingMenu = () => {
           <Badge>2</Badge>
         </Box>
       </PopoverTrigger>
-      <PopoverContent
-        color="white"
-        w={{ base: '90%', lg: 350 }}
-        bg="surfaceCards.800"
-        borderColor="surfaceCards.800"
-      >
-        <PopoverHeader pt={4} fontWeight="bold" border="0">
-          <Text fontWeight="500" fontSize="lg">
-            MI CARRITO
-          </Text>
-        </PopoverHeader>
-        <PopoverArrow bg="surfaceCards.800" />
-        <PopoverCloseButton />
-        <PopoverBody mx="auto" w="95%">
-          {/* Encabezado */}
-          <Flex mb={3} justify="space-between">
-            <Text fontWeight="500" fontSize="md">
-              Productos (2)
-            </Text>
-            <Text fontWeight="500" fontSize="md">
-              s/240.00
-            </Text>
-          </Flex>
-        </PopoverBody>
-
-        {/* Lista de Productos */}
-        <Stack w="90%" mx="auto">
-          <ProductList />
-          <ProductList />
-        </Stack>
-        <PopoverFooter mx="auto" w="95%" borderTopColor="transparent">
-          <Flex my={3} justify="space-between">
+      {load ? (
+        <PopoverContent
+          color="white"
+          w={{ base: '90%', lg: 350 }}
+          bg="surfaceCards.800"
+          borderColor="surfaceCards.800"
+        >
+          <PopoverHeader pt={4} fontWeight="bold" border="0">
             <Text fontWeight="500" fontSize="lg">
-              Sub-Total
+              MI CARRITO
             </Text>
-            <Text fontWeight="500" fontSize="md">
-              s/240.00
-            </Text>
-          </Flex>
-          <Button mb={3} w="full">
-            IR A PAGAR
-          </Button>
-          <Button variant="outline" mb={3} w="full">
-            VER MI CARRITO
-          </Button>
-        </PopoverFooter>
-      </PopoverContent>
+          </PopoverHeader>
+          <PopoverArrow bg="surfaceCards.800" />
+          <PopoverCloseButton />
+          <PopoverBody mx="auto" w="95%">
+            {/* Encabezado */}
+            <Flex mb={3} justify="space-between">
+              <Text fontWeight="500" fontSize="md">
+                Productos (2)
+              </Text>
+              <Text fontWeight="500" fontSize="md">
+                s/240.00
+              </Text>
+            </Flex>
+          </PopoverBody>
+
+          {/* Lista de Productos */}
+          <Stack w="90%" mx="auto">
+            <ProductList />
+            <ProductList />
+          </Stack>
+          <PopoverFooter mx="auto" w="95%" borderTopColor="transparent">
+            <Flex my={3} justify="space-between">
+              <Text fontWeight="500" fontSize="lg">
+                Sub-Total
+              </Text>
+              <Text fontWeight="500" fontSize="md">
+                s/240.00
+              </Text>
+            </Flex>
+            <Button mb={3} w="full">
+              IR A PAGAR
+            </Button>
+            <Button variant="outline" mb={3} w="full">
+              VER MI CARRITO
+            </Button>
+          </PopoverFooter>
+        </PopoverContent>
+      ) : null}
     </Popover>
   )
 }

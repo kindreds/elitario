@@ -15,8 +15,8 @@ const DesktopNav = ({ hasScroll }) => {
   return (
     <>
       <HStack
-        display={{ base: 'none', lg: 'flex' }}
         spacing={{ base: 5, xl: 10 }}
+        display={{ base: 'none', lg: 'flex' }}
       >
         <Image
           height={45}
