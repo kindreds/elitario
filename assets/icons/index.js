@@ -18,6 +18,25 @@ export const BalanceIcon = (props) => {
   )
 }
 
+export const FilterIcon = (props) => {
+  return (
+    <svg
+      aria-hidden="true"
+      data-prefix="fas"
+      data-icon="filter"
+      className="prefix__svg-inline--fa prefix__fa-filter prefix__fa-w-16"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      {...props}
+    >
+      <path
+        fill={props.fill}
+        d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"
+      />
+    </svg>
+  )
+}
+
 export const StarIcon = (props) => {
   return (
     <svg
@@ -218,6 +237,44 @@ export const ShoppingIcon = (props) => {
       <path
         d="M18.337 10.574L19.98 3.35a.833.833 0 00-.813-1.018H5.528L5.21.777a.833.833 0 00-.817-.666H.833A.833.833 0 000 .944V1.5c0 .46.373.833.833.833H3.26l2.439 11.925a1.943 1.943 0 00.968 3.63 1.944 1.944 0 001.36-3.332h7.28a1.945 1.945 0 102.208-.361l.191-.844a.833.833 0 00-.812-1.018h-9.32l-.228-1.11h10.179c.389 0 .726-.27.813-.65z"
         fill={props.fill}
+      />
+    </svg>
+  )
+}
+
+export const SortIcon = (props) => {
+  return (
+    <svg
+      aria-hidden="true"
+      data-prefix="fas"
+      data-icon="sort-amount-down-alt"
+      className="prefix__svg-inline--fa prefix__fa-sort-amount-down-alt prefix__fa-w-16"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      {...props}
+    >
+      <path
+        fill={props.fill}
+        d="M240 96h64a16 16 0 0016-16V48a16 16 0 00-16-16h-64a16 16 0 00-16 16v32a16 16 0 0016 16zm0 128h128a16 16 0 0016-16v-32a16 16 0 00-16-16H240a16 16 0 00-16 16v32a16 16 0 0016 16zm256 192H240a16 16 0 00-16 16v32a16 16 0 0016 16h256a16 16 0 0016-16v-32a16 16 0 00-16-16zm-256-64h192a16 16 0 0016-16v-32a16 16 0 00-16-16H240a16 16 0 00-16 16v32a16 16 0 0016 16zm-64 0h-48V48a16 16 0 00-16-16H80a16 16 0 00-16 16v304H16c-14.19 0-21.37 17.24-11.29 27.31l80 96a16 16 0 0022.62 0l80-96C197.35 369.26 190.22 352 176 352z"
+      />
+    </svg>
+  )
+}
+
+export const FowardIcon = (props) => {
+  return (
+    <svg
+      aria-hidden="true"
+      data-prefix="fas"
+      data-icon="angle-double-right"
+      className="prefix__svg-inline--fa prefix__fa-angle-double-right prefix__fa-w-14"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 448 512"
+      {...props}
+    >
+      <path
+        fill={props.fill}
+        d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
       />
     </svg>
   )

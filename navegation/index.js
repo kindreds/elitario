@@ -8,7 +8,8 @@ export const navigation = [
   {
     id: 'tienda',
     name: 'Tienda',
-    path: '/tienda'
+    path: '/tienda',
+    active: true
   },
   {
     id: 'nosotros',

@@ -43,13 +43,20 @@ const Sidebar = ({ isOpen, onClose }) => {
         <DrawerBody w="80%" mx="auto">
           <Icon as={Separador} w="full" h={5} />
           <Stack mt={2}>
-            {navigation.map(({ id, name, path }) => (
-              <Box key={id}>
+            {navigation.map(({ id, name, path, active }) => (
+              <Box key={id} pointerEvents={active ? 'unset' : 'none'}>
                 <NextLink href={path}>
                   <Link
                     fontSize="3xl"
+                    onClick={onClose}
                     textTransform="uppercase"
-                    color={pathname === path ? 'primary.500' : 'white'}
+                    color={
+                      active
+                        ? pathname === path
+                          ? 'primary.500'
+                          : 'white'
+                        : 'gray.500'
+                    }
                   >
                     {name}
                   </Link>

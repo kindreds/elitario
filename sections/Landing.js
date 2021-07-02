@@ -2,7 +2,6 @@ import React from 'react'
 
 // Component
 import Blog from '@/components/Blog'
-import Footer from '@/components/Footer'
 import HeroSlider from '@/components/HeroSlider'
 import BrandStack from '@/components/BrandStack'
 import Publicidad from '@/components/Publicidad'
@@ -24,7 +23,6 @@ const Landing = () => {
       <Blog />
       <PublicacionesRecientes />
       <PorQueElegirnos />
-      <Footer />
     </>
   )
 }

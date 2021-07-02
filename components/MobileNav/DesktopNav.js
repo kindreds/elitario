@@ -1,9 +1,11 @@
 import React from 'react'
+import NextLink from 'next/link'
+import { useRouter } from 'next/dist/client/router'
 
 // Librerias de Terceros
 import { Icon } from '@chakra-ui/icon'
 import { Image } from '@chakra-ui/image'
-import { Flex, HStack, Text, Box } from '@chakra-ui/layout'
+import { Flex, HStack, Text, Box, Link } from '@chakra-ui/layout'
 
 // Iconos
 import { CupIcon } from '@/assets/icons'
@@ -12,6 +14,8 @@ import { CupIcon } from '@/assets/icons'
 import { navigation } from '@/navegation/index'
 
 const DesktopNav = ({ hasScroll }) => {
+  const { pathname } = useRouter()
+
   return (
     <>
       <HStack
@@ -26,14 +30,23 @@ const DesktopNav = ({ hasScroll }) => {
           width={hasScroll ? 100 : 0}
         />
         {navigation.map(({ id, name, active, path }, i) => (
-          <Text
-            key={id}
-            fontSize="xl"
-            textTransform="uppercase"
-            color={active ? 'white' : 'surfaceCards.500'}
-          >
-            {name}
-          </Text>
+          <Box key={id} pointerEvents={active ? 'unset' : 'none'}>
+            <NextLink href={path}>
+              <Link
+                fontSize="xl"
+                textTransform="uppercase"
+                color={
+                  active
+                    ? pathname === path
+                      ? 'primary.500'
+                      : 'white'
+                    : 'gray.500'
+                }
+              >
+                {name}
+              </Link>
+            </NextLink>
+          </Box>
         ))}
         <Flex
           bg="primary.800"

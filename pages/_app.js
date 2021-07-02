@@ -6,6 +6,7 @@ import { ChakraProvider, useDisclosure } from '@chakra-ui/react'
 
 // Componentes
 import Globals from '../styles'
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import MobileNav from '@/components/MobileNav'
 import Preloader from '@/components/Preloader'
@@ -29,12 +30,13 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <ChakraProvider resetCSS theme={theme}>
-      <Preloader />
       <Globals />
+      <Preloader />
       {/* FIRTS LOAD */}
       <Header />
       <MobileNav {...{ modal, sidebar }} />
       <Component {...pageProps} />
+      <Footer />
       {/* LOAD LATER */}
       {loadChunk ? <Sidebar {...sidebar} /> : null}
       {loadChunk ? <SearchModal {...modal} /> : null}
