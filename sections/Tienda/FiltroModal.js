@@ -92,7 +92,12 @@ const FiltroModal = ({ isOpen, onClose }) => {
         </ModalBody>
 
         <ModalFooter>
-          <Button onClick={onClose} variant="solid" colorScheme="primary">
+          <Button
+            variant="solid"
+            fontWeight="500"
+            onClick={onClose}
+            colorScheme="primary"
+          >
             Filtrar
           </Button>
         </ModalFooter>

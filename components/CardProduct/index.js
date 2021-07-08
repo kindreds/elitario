@@ -11,8 +11,12 @@ import Button from '@/components/Button/Button'
 // Iconos
 import { StarIcon, ShoppingIcon, ZoomIcon } from '@/assets/icons'
 
-const CardProduct = ({ src = '/images/producto5.png ' }) => (
-  <Box m={5} maxW="340px" mx={{ xl: '5' }}>
+const CardProduct = ({
+  src = '/images/producto5.png',
+  mx = { xl: '5' },
+  ...props
+}) => (
+  <Box m={5} maxW="340px" mx={mx}>
     <Box bg="surfaceCards.800" pt={10} pb={4} px={5} mb={5} pos="relative">
       <Image src={src} layout="intrinsic" width={300} height={300} />
       <Box pos="absolute" top={2} left={2} bg="surfaceCards.700" py={1} px={2}>

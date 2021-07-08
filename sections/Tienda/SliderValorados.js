@@ -10,14 +10,14 @@ import CardProduct from '@/components/CardProduct'
 // Hooks
 import useNumSlides from '@/utils/hooks/useNumSlides'
 
-const SliderValorados = () => {
+const SliderValorados = (props) => {
   const [timer, setTimer] = useState(false)
   const [actualSlide, setActualSlide] = useState(0)
   const numOfSlides = useNumSlides({
     base: 1,
     ms: 1,
     sm: 2,
-    md: 3,
+    md: 2,
     xl: 4
   })
 
@@ -45,6 +45,7 @@ const SliderValorados = () => {
   return (
     <>
       <Box
+        {...props}
         mx="auto"
         maxW="1700px"
         onTouchStart={reset}
@@ -57,14 +58,38 @@ const SliderValorados = () => {
           numOfSlides={numOfSlides}
           doAfterSlide={updateSlide}
         >
-          <CardProduct src={`/images/producto${1}.png`} />
-          <CardProduct src={`/images/producto${2}.png`} />
-          <CardProduct src={`/images/producto${3}.png`} />
-          <CardProduct src={`/images/producto${4}.png`} />
-          <CardProduct src={`/images/producto${1}.png`} />
-          <CardProduct src={`/images/producto${2}.png`} />
-          <CardProduct src={`/images/producto${3}.png`} />
-          <CardProduct src={`/images/producto${4}.png`} />
+          <CardProduct
+            mx={{ base: 2, md: 'auto' }}
+            src={`/images/producto${1}.png`}
+          />
+          <CardProduct
+            mx={{ base: 2, md: 'auto' }}
+            src={`/images/producto${2}.png`}
+          />
+          <CardProduct
+            mx={{ base: 2, md: 'auto' }}
+            src={`/images/producto${3}.png`}
+          />
+          <CardProduct
+            mx={{ base: 2, md: 'auto' }}
+            src={`/images/producto${4}.png`}
+          />
+          <CardProduct
+            mx={{ base: 2, md: 'auto' }}
+            src={`/images/producto${1}.png`}
+          />
+          <CardProduct
+            mx={{ base: 2, md: 'auto' }}
+            src={`/images/producto${2}.png`}
+          />
+          <CardProduct
+            mx={{ base: 2, md: 'auto' }}
+            src={`/images/producto${3}.png`}
+          />
+          <CardProduct
+            mx={{ base: 2, md: 'auto' }}
+            src={`/images/producto${4}.png`}
+          />
         </Slider>
       </Box>
     </>
