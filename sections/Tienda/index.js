@@ -57,7 +57,10 @@ const Tienda = () => {
           <OrdenarMenu />
         </Flex>
 
-        <SimpleGrid gap={5} templateColumns="300px 1fr">
+        <SimpleGrid
+          gap={5}
+          templateColumns={{ base: 'minmax(0, 1fr)', md: '300px 1fr' }}
+        >
           <Box display={{ base: 'none', md: 'block' }}>
             <Flex mt={8} justify="space-between">
               <HeadingC
@@ -134,9 +137,9 @@ const Tienda = () => {
                 ))}
             </Stack>
           </Box>
-          <div>
+          <Box w="full">
             <SimpleGrid
-              autoRows="450px"
+              // autoRows="450px"
               gap={{ base: 5 }}
               ml={{ base: 0, md: 10 }}
               templateColumns={{
@@ -154,7 +157,7 @@ const Tienda = () => {
             <Flex mt={20} mb={10} justify="center">
               <Pagination />
             </Flex>
-          </div>
+          </Box>
         </SimpleGrid>
 
         <HeadingC

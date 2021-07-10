@@ -15,19 +15,19 @@ const ProductList = () => {
         pt={2}
         px={1}
         mr={2}
-        borderColor="surfaceCards.700"
-        borderWidth={1}
+        w={16}
+        h={16}
         rounded="sm"
+        pos="relative"
+        borderWidth={1}
+        borderColor="surfaceCards.700"
       >
-        <Image
-          width={54}
-          height={54}
-          layout="intrinsic"
-          src="/images/producto5.png"
-        />
+        <Image objectFit="contain" layout="fill" src="/images/producto5.png" />
       </Box>
       <Box>
-        <Text fontSize="sm">(1) Whisky escocés Highland Park Dark Origins</Text>
+        <Text fontSize="sm" color="white">
+          (1) Whisky escocés Highland Park Dark Origins
+        </Text>
         <Text fontSize="sm" color="primary.500">
           s/120.00
         </Text>
@@ -35,6 +35,7 @@ const ProductList = () => {
       <Icon
         w={3}
         h={3}
+        ml={1}
         as={PlusIcon}
         cursor="pointer"
         fill="surfaceCards.500"

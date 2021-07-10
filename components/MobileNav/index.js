@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 
 // Librerias de Terceros
 import { Icon } from '@chakra-ui/icon'
-import { Flex, HStack } from '@chakra-ui/layout'
+import { Flex } from '@chakra-ui/layout'
+import { ButtonGroup } from '@chakra-ui/button'
+import { useMediaQuery } from '@chakra-ui/media-query'
 
 // Componentes
 import DesktopNav from './DesktopNav'
@@ -14,6 +16,7 @@ import { BarsIcon, SearchIcon } from '@/assets/icons'
 
 const MobileNav = ({ modal, sidebar }) => {
   const [scrollY, setScrollY] = useState(0)
+  const [isMD] = useMediaQuery('(max-width: 52em)')
 
   useEffect(() => {
     const onChange = () => setScrollY(window.scrollY)
@@ -31,7 +34,7 @@ const MobileNav = ({ modal, sidebar }) => {
       mt="-120px"
       pos="sticky"
       py={{ base: 5 }}
-      zIndex="overlay"
+      zIndex="9"
       justify="center"
       transition="all 0.3s ease"
       w={{ base: 'full', lg: 'full' }}
@@ -48,7 +51,7 @@ const MobileNav = ({ modal, sidebar }) => {
           icon={<Icon as={BarsIcon} fill="#fff" />}
         />
         <DesktopNav {...{ hasScroll }} />
-        <HStack spacing={{ base: 5 }}>
+        <ButtonGroup isAttached={isMD} spacing={{ base: 0, md: 5 }}>
           <IconButton
             onClick={modal.onOpen}
             icon={<Icon as={SearchIcon} fill="#fff" />}
@@ -56,7 +59,7 @@ const MobileNav = ({ modal, sidebar }) => {
 
           <ShoppingMenu />
           <UserMenu />
-        </HStack>
+        </ButtonGroup>
       </Flex>
     </Flex>
   )

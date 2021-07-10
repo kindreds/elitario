@@ -10,7 +10,7 @@ import { Box, SimpleGrid } from '@chakra-ui/layout'
 import useNumSlides from '@/utils/hooks/useNumSlides'
 
 const breakpoints = {
-  base: 1,
+  base: 2,
   ms: 2,
   sm: 3,
   md: 4,

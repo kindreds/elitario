@@ -6,12 +6,12 @@ import { useDisclosure } from '@chakra-ui/hooks'
 
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import Sidebar from '@/components/Sidebar'
 import MobileNav from '@/components/MobileNav'
-import SearchModal from '@/components/SearchModal'
 
 // Importaciones dinamicas
 const Landing = d(() => import('@/sections/Landing'), { ssr: false })
+const Sidebar = d(() => import('@/components/Sidebar'), { ssr: false })
+const SearchModal = d(() => import('@/components/SearchModal'), { ssr: false })
 
 const Home = () => {
   const modal = useDisclosure()
@@ -24,7 +24,7 @@ const Home = () => {
   }, [modal.isOpen, sidebar.isOpen])
 
   return (
-    <>
+    <div>
       <Head>
         <title>Elitario</title>
         <link rel="icon" href="/favicon.ico" />
@@ -38,7 +38,7 @@ const Home = () => {
       {/* LOAD LATER */}
       {loadChunk ? <Sidebar {...sidebar} /> : null}
       {loadChunk ? <SearchModal {...modal} /> : null}
-    </>
+    </div>
   )
 }
 

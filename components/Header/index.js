@@ -17,8 +17,8 @@ const Header = () => {
         zIndex="2"
         bg="#0D0D0D"
         align="center"
-        w={{ base: 'full' }}
         justify="center"
+        w={{ base: 'full' }}
       >
         <Flex
           w={{ base: 'full', lg: 1200 }}
@@ -74,8 +74,8 @@ const Header = () => {
         align="center"
         pos="relative"
         justify="center"
-        bgSize="cover"
-        bgRepeat="repeat"
+        bgSize="contain"
+        // bgRepeat="repeat"
         bgPosition="center"
         h={{ base: '400px' }}
         bgImage="url(/images/heroPattern.webp)"
