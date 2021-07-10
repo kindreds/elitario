@@ -27,10 +27,10 @@ import ProductList from '@/components/CardProduct/ProductList'
 import { UserIcon, ShoppingIcon } from '@/assets/icons'
 
 export const UserMenu = () => {
-  const [load, setLoad] = useState(false)
+  // const [load, setLoad] = useState(false)
 
   return (
-    <Menu onOpen={() => setLoad(true)}>
+    <Menu>
       <MenuButton
         size="lg"
         rounded="sm"
