@@ -5,9 +5,9 @@ import Image from 'next/image'
 import {
   Box,
   Text,
-  Heading as ChakraHeading,
   Link,
-  Flex
+  Flex,
+  Heading as ChakraHeading
 } from '@chakra-ui/layout'
 
 const BlogCard = (props) => (
