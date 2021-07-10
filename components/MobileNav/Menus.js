@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 // Librerias de Terceros
 import { Icon } from '@chakra-ui/icon'
+import { Portal } from '@chakra-ui/portal'
 import { Box, Text, Flex, Stack } from '@chakra-ui/layout'
 import { IconButton as IconButton2 } from '@chakra-ui/button'
 import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/menu'
@@ -38,8 +39,8 @@ export const UserMenu = () => {
         colorScheme="surfaceCards"
         icon={<Icon as={UserIcon} fill="#fff" />}
       />
-      {load ? (
-        <MenuList borderColor="transparent" bg="surfaceCards.800">
+      <Portal>
+        <MenuList zIndex="9999" borderColor="transparent" bg="surfaceCards.800">
           <MenuItem
             _focus={{ bg: 'primary.500' }}
             _active={{ bg: 'primary.600' }}
@@ -62,14 +63,16 @@ export const UserMenu = () => {
             Cerrar Sesión
           </MenuItem>
         </MenuList>
-      ) : null}
+      </Portal>
     </Menu>
   )
 }
 
 export const ShoppingMenu = () => {
+  const [load, setLoad] = useState(false)
+
   return (
-    <Popover placement="bottom" closeOnBlur>
+    <Popover isLazy placement="bottom" closeOnBlur onOpen={() => setLoad(true)}>
       <PopoverTrigger>
         <Box pos="relative">
           <IconButton2
@@ -82,10 +85,11 @@ export const ShoppingMenu = () => {
           <Badge>2</Badge>
         </Box>
       </PopoverTrigger>
+      {/* <Portal> */}
       <PopoverContent
         color="white"
-        w={{ base: '90%', lg: 350 }}
         bg="surfaceCards.800"
+        w={{ base: '90%', lg: 350 }}
         borderColor="surfaceCards.800"
       >
         <PopoverHeader pt={4} fontWeight="bold" border="0">
@@ -129,6 +133,7 @@ export const ShoppingMenu = () => {
           </Button>
         </PopoverFooter>
       </PopoverContent>
+      {/* </Portal> */}
     </Popover>
   )
 }

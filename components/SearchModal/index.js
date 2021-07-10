@@ -49,6 +49,10 @@ const SearchModal = ({ isOpen, onClose }) => {
           pt={{ base: 5, lg: 10 }}
           px={{ base: 5, xl: 20 }}
           maxW={{ base: '95%', xl: '1300px' }}
+          sx={{
+            '&::-webkit-scrollbar': { width: '0.5rem' },
+            '&::-webkit-scrollbar-thumb': { bg: 'primary.500', rounded: 'md' }
+          }}
         >
           <Heading
             // mt={10}

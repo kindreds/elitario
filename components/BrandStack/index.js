@@ -46,7 +46,7 @@ const BrandStack = () => {
 
   return (
     <Box mt={-1} w="full" bg="#000">
-      <Box maxW="1200px" mx="auto" px={8} py={16}>
+      <Box maxW="1200px" mx="auto" px={8} py={12}>
         {numOfSlides !== 6 ? (
           <Slider
             slide={actualSlide}
@@ -60,8 +60,8 @@ const BrandStack = () => {
                 <Box
                   key={i}
                   w="full"
-                  h={{ base: 200 }}
                   pos="relative"
+                  h={{ base: 100 }}
                   onTouchStart={reset}
                   onMouseEnter={reset}
                   onTouchEnd={() => setTimer(play())}

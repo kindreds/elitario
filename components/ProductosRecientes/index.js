@@ -10,18 +10,19 @@ import Button from '@/components/Button/Button'
 import CardProduct from '@/components/CardProduct'
 
 // Hooks
-import useNumSlides from '@/utils/hooks/useNumSlides'
+// import useNumSlides from '@/utils/hooks/useNumSlides'
+import useBreakPoint from '@/utils/hooks/useBreakPoint'
 
-const ProductosRecientes = ({ loadChunk }) => {
+const ProductosRecientes = () => {
   const [timer, setTimer] = useState(false)
   const [isFocus, setIsFocus] = useState(1)
   const [actualSlide, setActualSlide] = useState(0)
-  const numOfSlides = useNumSlides({
-    base: 1,
-    ms: 1,
-    sm: 2,
-    md: 3,
-    xl: 4
+  const { reset: reset2, num } = useBreakPoint({
+    sm: 1,
+    md: 2,
+    lg: 2,
+    xl: 3,
+    xxl: 4
   })
 
   useEffect(() => {
@@ -48,6 +49,7 @@ const ProductosRecientes = ({ loadChunk }) => {
   return (
     <>
       <Box
+        mt="-1"
         bgSize="contain"
         py={{ base: 16 }}
         bgPosition="center"
@@ -99,20 +101,22 @@ const ProductosRecientes = ({ loadChunk }) => {
             onTouchEnd={() => setTimer(play())}
             onMouseLeave={() => setTimer(play())}
           >
-            <Slider
-              slide={actualSlide}
-              numOfSlides={numOfSlides}
-              doAfterSlide={updateSlide}
-            >
-              <CardProduct src={`/images/producto${1}.png`} />
-              <CardProduct src={`/images/producto${2}.png`} />
-              <CardProduct src={`/images/producto${3}.png`} />
-              <CardProduct src={`/images/producto${4}.png`} />
-              <CardProduct src={`/images/producto${1}.png`} />
-              <CardProduct src={`/images/producto${2}.png`} />
-              <CardProduct src={`/images/producto${3}.png`} />
-              <CardProduct src={`/images/producto${4}.png`} />
-            </Slider>
+            {!reset2 ? (
+              <Slider
+                numOfSlides={num}
+                slide={actualSlide}
+                doAfterSlide={updateSlide}
+              >
+                <CardProduct src={`/images/producto${1}.png`} />
+                <CardProduct src={`/images/producto${2}.png`} />
+                <CardProduct src={`/images/producto${3}.png`} />
+                <CardProduct src={`/images/producto${4}.png`} />
+                <CardProduct src={`/images/producto${1}.png`} />
+                <CardProduct src={`/images/producto${2}.png`} />
+                <CardProduct src={`/images/producto${3}.png`} />
+                <CardProduct src={`/images/producto${4}.png`} />
+              </Slider>
+            ) : null}
           </Box>
         </Box>
       </Box>
