@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import d from 'next/dynamic'
 import Head from 'next/head'
-import { useDisclosure } from '@chakra-ui/react'
-import Sidebar from '@/components/Sidebar'
-import SearchModal from '@/components/SearchModal'
+
+import { useDisclosure } from '@chakra-ui/media-query'
+
 import Footer from '@/components/Footer'
-import MobileNav from '@/components/MobileNav'
 import Header from '@/components/Header'
+import Sidebar from '@/components/Sidebar'
+import MobileNav from '@/components/MobileNav'
+import SearchModal from '@/components/SearchModal'
 
 // Importaciones dinamicas
 const Landing = d(() => import('@/sections/Landing'), { ssr: false })

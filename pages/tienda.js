@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 
+import { useDisclosure } from '@chakra-ui/media-query'
+
 import Tienda from '@/sections/Tienda'
 import Footer from '@/components/Footer'
-import Sidebar from '@/components/Sidebar'
-import SearchModal from '@/components/SearchModal'
-import MobileNav from '@/components/MobileNav'
 import Header from '@/components/Header'
-import { useDisclosure } from '@chakra-ui/react'
+import Sidebar from '@/components/Sidebar'
+import MobileNav from '@/components/MobileNav'
+import SearchModal from '@/components/SearchModal'
 
 const tienda = () => {
   const modal = useDisclosure()
