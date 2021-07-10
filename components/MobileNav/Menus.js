@@ -85,55 +85,55 @@ export const ShoppingMenu = () => {
           <Badge>2</Badge>
         </Box>
       </PopoverTrigger>
-      {/* <Portal> */}
-      <PopoverContent
-        color="white"
-        bg="surfaceCards.800"
-        w={{ base: '90%', lg: 350 }}
-        borderColor="surfaceCards.800"
-      >
-        <PopoverHeader pt={4} fontWeight="bold" border="0">
-          <Text fontWeight="500" fontSize="lg">
-            MI CARRITO
-          </Text>
-        </PopoverHeader>
-        <PopoverArrow bg="surfaceCards.800" />
-        <PopoverCloseButton />
-        <PopoverBody mx="auto" w="95%">
-          {/* Encabezado */}
-          <Flex mb={3} justify="space-between">
-            <Text fontWeight="500" fontSize="md">
-              Productos (2)
-            </Text>
-            <Text fontWeight="500" fontSize="md">
-              s/240.00
-            </Text>
-          </Flex>
-        </PopoverBody>
-
-        {/* Lista de Productos */}
-        <Stack w="90%" mx="auto">
-          <ProductList />
-          <ProductList />
-        </Stack>
-        <PopoverFooter mx="auto" w="95%" borderTopColor="transparent">
-          <Flex my={3} justify="space-between">
+      <Portal>
+        <PopoverContent
+          color="white"
+          bg="surfaceCards.800"
+          w={{ base: '90%', lg: 350 }}
+          borderColor="surfaceCards.800"
+        >
+          <PopoverHeader pt={4} fontWeight="bold" border="0">
             <Text fontWeight="500" fontSize="lg">
-              Sub-Total
+              MI CARRITO
             </Text>
-            <Text fontWeight="500" fontSize="md">
-              s/240.00
-            </Text>
-          </Flex>
-          <Button mb={3} w="full">
-            IR A PAGAR
-          </Button>
-          <Button variant="outline" mb={3} w="full">
-            VER MI CARRITO
-          </Button>
-        </PopoverFooter>
-      </PopoverContent>
-      {/* </Portal> */}
+          </PopoverHeader>
+          <PopoverArrow bg="surfaceCards.800" />
+          <PopoverCloseButton />
+          <PopoverBody mx="auto" w="95%">
+            {/* Encabezado */}
+            <Flex mb={3} justify="space-between">
+              <Text fontWeight="500" fontSize="md">
+                Productos (2)
+              </Text>
+              <Text fontWeight="500" fontSize="md">
+                s/240.00
+              </Text>
+            </Flex>
+          </PopoverBody>
+
+          {/* Lista de Productos */}
+          <Stack w="90%" mx="auto">
+            <ProductList />
+            <ProductList />
+          </Stack>
+          <PopoverFooter mx="auto" w="95%" borderTopColor="transparent">
+            <Flex my={3} justify="space-between">
+              <Text fontWeight="500" fontSize="lg">
+                Sub-Total
+              </Text>
+              <Text fontWeight="500" fontSize="md">
+                s/240.00
+              </Text>
+            </Flex>
+            <Button mb={3} w="full">
+              IR A PAGAR
+            </Button>
+            <Button variant="outline" mb={3} w="full">
+              VER MI CARRITO
+            </Button>
+          </PopoverFooter>
+        </PopoverContent>
+      </Portal>
     </Popover>
   )
 }

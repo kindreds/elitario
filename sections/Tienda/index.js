@@ -58,7 +58,7 @@ const Tienda = () => {
         </Flex>
 
         <SimpleGrid gap={5} templateColumns="300px 1fr">
-          <Box>
+          <Box display={{ base: 'none', md: 'block' }}>
             <Flex mt={8} justify="space-between">
               <HeadingC
                 color="white"
@@ -136,9 +136,9 @@ const Tienda = () => {
           </Box>
           <div>
             <SimpleGrid
-              ml={10}
               autoRows="450px"
               gap={{ base: 5 }}
+              ml={{ base: 0, md: 10 }}
               templateColumns={{
                 base: 'minmax(0, 1fr)',
                 sm: 'repeat(2, minmax(0, 1fr))',
