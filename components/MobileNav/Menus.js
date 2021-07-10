@@ -69,10 +69,10 @@ export const UserMenu = () => {
 }
 
 export const ShoppingMenu = () => {
-  const [load, setLoad] = useState(false)
+  // const [load, setLoad] = useState(false)
 
   return (
-    <Popover isLazy placement="bottom" closeOnBlur onOpen={() => setLoad(true)}>
+    <Popover isLazy placement="bottom" closeOnBlur>
       <PopoverTrigger>
         <Box pos="relative">
           <IconButton2
