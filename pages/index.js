@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import d from 'next/dynamic'
 import Head from 'next/head'
 
-import { useDisclosure } from '@chakra-ui/media-query'
+import { useDisclosure } from '@chakra-ui/hooks'
 
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
