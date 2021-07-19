@@ -23,7 +23,7 @@ const Header = () => {
       >
         <Link href="/">
           <a>
-            <Image w={100} objectFit="contain" src="/logo/index.svg" />
+            <Image w={100} objectFit="contain" src="/logo/logo-elitario.svg" />
           </a>
         </Link>
         <ButtonC

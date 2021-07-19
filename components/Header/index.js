@@ -21,8 +21,8 @@ const Header = () => {
         w={{ base: 'full' }}
       >
         <Flex
-          w={{ base: 'full', lg: 1200 }}
           align="center"
+          w={{ base: 'full', lg: 1200 }}
           flexDirection={{ base: 'column', sm: 'row' }}
         >
           <Box
@@ -83,11 +83,11 @@ const Header = () => {
         <Box
           mx="auto"
           pos="relative"
-          w={{ base: '250px', sm: '300px' }}
-          h={{ base: '200px', sm: '250px' }}
+          w={{ base: '250px', sm: '350px' }}
+          h={{ base: '200px', sm: '300px' }}
           transform="translateY(-20px)"
         >
-          <Image src="/logo/index.svg" layout="fill" />
+          <Image src="/logo/logo-elitario.svg" layout="fill" />
         </Box>
       </Flex>
     </>
