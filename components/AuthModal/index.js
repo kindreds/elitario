@@ -24,7 +24,7 @@ import { Button } from '@/components/Button'
 // Icons
 import { FacebookIcon, GoogleIcon } from '@/assets/icons'
 
-const AuthModal = ({ isOpen, onClose }) => {
+const AuthModal = ({ isOpen, onClose, handleAuth }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -100,7 +100,14 @@ const AuthModal = ({ isOpen, onClose }) => {
                 placeholder="Contraseña"
               />
             </FormControl>
-            <Button onClick={onClose}>INICIAR SESIÓN</Button>
+            <Button
+              onClick={() => {
+                handleAuth()
+                onClose()
+              }}
+            >
+              INICIAR SESIÓN
+            </Button>
           </Stack>
 
           <ModalFooter px={0} flexDirection="column" justifyContent="center">

@@ -16,6 +16,7 @@ module.exports = {
   rules: {
     'react/prop-types': 'off',
     'multiline-ternary': 'off',
-    'react/no-children-prop': 'off'
+    'react/no-children-prop': 'off',
+    'space-before-function-paren': 'off'
   }
 }
