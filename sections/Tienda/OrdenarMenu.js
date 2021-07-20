@@ -5,8 +5,6 @@ import { Icon } from '@chakra-ui/icon'
 import { IconButton as IconButton2 } from '@chakra-ui/button'
 import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/menu'
 
-// Componentes
-
 // Iconos
 import { SortIcon } from '@/assets/icons'
 
