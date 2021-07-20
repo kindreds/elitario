@@ -100,7 +100,12 @@ const FormEnvio = ({ next, prev, disabled, i }) => {
             <Text mb={2} color="white" fontWeight="600">
               Encomienda (Provincias)
             </Text>
-            <Text color="white" whiteSpace="normal" fontWeight="500">
+            <Text
+              textAlign="left"
+              color="white"
+              whiteSpace="normal"
+              fontWeight="500"
+            >
               Usted elige la agencia en la que desea recibir el pedido
             </Text>
           </Box>

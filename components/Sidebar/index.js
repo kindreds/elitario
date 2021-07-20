@@ -69,7 +69,7 @@ const Sidebar = ({ isOpen, onClose }) => {
         <Icon as={Separador} w="80%" h={5} mx="auto" />
         <DrawerFooter>
           <Box pos="relative" mt={2} mb={8} w="full" h={{ base: '100px' }}>
-            <Image src="/logo/index.svg" layout="fill" />
+            <Image src="/logo/logo-elitario.svg" layout="fill" />
           </Box>
         </DrawerFooter>
       </DrawerContent>
