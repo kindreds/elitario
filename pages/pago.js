@@ -8,11 +8,9 @@ import {
   Flex,
   Text,
   Stack,
-  Heading,
   Container,
   SimpleGrid
 } from '@chakra-ui/layout'
-import { useDisclosure } from '@chakra-ui/react'
 
 // components
 import Footer from '@/components/Footer'
